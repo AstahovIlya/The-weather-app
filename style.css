@@ -1,0 +1,251 @@
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+   background: linear-gradient(117deg, #93A4FF 0%, #432AA6 83.8%, #602BB7 83.81%, #2D5EA7 100%);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.weather {
+   border-radius: 15px;
+   background: linear-gradient(148deg, #E57E7E -0.02%, #DED47F 98.99%);
+   box-shadow: 4px 4px 12.5px 0px rgba(0, 0, 0, 0.83);
+   padding: 50px 30px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   position: relative;
+   overflow: hidden;
+   width: clamp(320px, 90vw, 414px);
+}
+
+.weather__location {
+   margin-bottom: 25px;
+}
+.location__actual {
+   display: flex;
+   align-items: center;
+   gap: 20px;
+   justify-content: center;
+}
+.location__locality {
+   color: #FFF;
+   text-shadow: -2px 3px 1px rgba(0, 0, 0, 0.10);
+   font-family: Overpass;
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 700;
+   line-height: normal;
+}
+.location__btn {
+   background: initial;
+   border: none;
+   cursor: pointer;
+}
+
+.location__search {
+   position: absolute;
+   left: 0;
+   top: -100%;
+   width: 100%;
+   border-radius: 0px 0px 30px 30px;
+   background: #FCFCFC;
+   padding: 60px 30px;
+   z-index: 5;
+   transition: all 0.3s ease;
+}
+.location__search._open-search {
+   top: 0;
+}
+.location__row {
+   position: relative;
+   width: 100%;
+}
+.location__search input[type="text"] {
+   border-radius: 15px;
+   background: #FFF;
+   box-shadow: -6px 4px 4px 0px rgba(255, 255, 255, 0.10) inset, 2px -3px 6px 0px rgba(0, 0, 0, 0.10) inset;
+   padding: 5% 0 5% 20%;
+   width: 100%;
+}
+.location__search input[type="button"] {
+   background: url("./icon/back-search.png") center no-repeat;
+   width: 24px;
+   background-color: initial;
+   border: none;
+   cursor: pointer;
+   position: absolute;
+   left: 16px;
+   top: 50%;
+   transform: translateY(-50%);
+}
+
+.weather__icon {
+   position: relative;
+   width: 60%;
+   aspect-ratio: 1/1;
+   margin-bottom: 25px;
+}
+.weather__icon img {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   left: 0;
+   top: 0;
+   object-fit: cover;
+}
+
+.informe {
+   border-radius: 20px;
+   background: rgba(255, 255, 255, 0.30);
+   width: 100%;
+   border: 2px solid #FFF;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 20px;
+}
+time {
+   color: #FFF;
+   text-shadow: -2px 3px 1px rgba(0, 0, 0, 0.10);
+   font-family: Overpass;
+   font-size: 18px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: normal;
+}
+.informe__temperature {
+   color: #FFF;
+   text-shadow: -4px 8px 50px rgba(0, 0, 0, 0.10);
+   font-family: Overpass;
+   font-size: 100px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: normal;
+}
+.informe__description {
+   color: #FFF;
+   text-shadow: -2px 3px 1px rgba(0, 0, 0, 0.10);
+   font-family: Overpass;
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 700;
+   line-height: normal;
+   margin-bottom: 35px;
+}
+.informe__options {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: center;
+   gap: 20px;
+}
+.informe__option {
+   display: flex;
+   gap: 20px;
+   color: #FFF;
+   text-shadow: -2px 3px 1px rgba(0, 0, 0, 0.10);
+   font-family: Overpass;
+   font-size: 18px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: normal;
+}
+
+.option {
+   width: 100%;
+}
+.option__icon {
+   position: relative;
+   width: 16px;
+   aspect-ratio: 1/1;
+}
+.option__name {
+   padding-right: 20px;
+   position: relative;
+   flex: 1 1 auto;
+}
+.option__name::after {
+   content: "|";
+   position: absolute;
+   right: 0;
+   top: 0;
+}
+.option__indication {
+   flex: 0 0 35%;
+}

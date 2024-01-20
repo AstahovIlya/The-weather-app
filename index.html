@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Weather project</title>
+   <link rel="stylesheet" href="./style.css">
+   <script src="script.js" defer></script>
+</head>
+
+<body>
+   <article class="weather">
+      <div class="weather__location location">
+         <div class="location__actual">
+            <div class="location__icon"><img src="./icon/location.png" alt="location"></div>
+            <p class="location__locality">Moscow</p>
+            <button class="location__btn"><img src="./icon/row.png" alt="row"></button>
+         </div>
+         <form action="" class="location__search">
+            <div class="location__row">
+               <input type="text" placeholder="Search here">
+               <input type="button" value="">
+            </div>
+         </form>
+      </div>
+      <div class="weather__icon"><img src="./icon/weather/cloudy.png" alt="weather"></div>
+      <article class="weather__informe informe">
+         <time>Today, 12 September</time>
+         <p class="informe__temperature">29°</p>
+         <p class="informe__description">Cloudy</p>
+         <div class="informe__options">
+            <div class="informe__option option">
+               <div class="option__icon"><img src="./icon/options/windy.png" alt="icon-wind"></div>
+               <p class="option__name">Wind</p>
+               <p id="wind" class="option__indication">10 km/h</p>
+            </div>
+            <div class="informe__option option">
+               <div class="option__icon"><img src="./icon/options/hum.png" alt="icon-hun"></div>
+               <p class="option__name">Hum</p>
+               <p id="hum" class="option__indication">54 %</p>
+            </div>
+         </div>
+      </article>
+   </article>
+</body>
+
+</html>
