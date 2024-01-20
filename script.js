@@ -21,6 +21,40 @@ let months = [
 ];
 let apiKey = 'a9736d02d1b4d93c07cd06532897974c';
 
+if (!navigator.geolocation) {
+   let weatherInfo = getWeather(55.76, 37.62);
+
+   let weatherData = {
+      name: weatherInfo.name,
+      date: weatherInfo.dt,
+      temp: weatherInfo.main.temp,
+      description: weatherInfo['weather'][0]['main'],
+      wind: weatherInfo.wind.speed,
+      humidity: weatherInfo.main.humidity
+   }
+
+   outputWeatherData(weatherData);
+} else {
+   navigator.geolocation.getCurrentPosition(success, handleError)
+}
+
+async function success(position) {  // если всё хорошо, собираем ссылку
+   const { longitude, latitude } = position.coords
+
+   let weatherInfo = await getWeather(latitude, longitude);
+
+   let weatherData = {
+      name: weatherInfo.name,
+      date: weatherInfo.dt,
+      temp: weatherInfo.main.temp,
+      description: weatherInfo['weather'][0]['main'],
+      wind: weatherInfo.wind.speed,
+      humidity: weatherInfo.main.humidity
+   }
+
+   outputWeatherData(weatherData);
+}
+
 async function handleError(error) {
    // эту фукнцию можно передать колбэком на случай ошибок
 
