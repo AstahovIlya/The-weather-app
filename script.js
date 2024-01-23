@@ -21,6 +21,12 @@ let months = [
 ];
 let apiKey = 'a9736d02d1b4d93c07cd06532897974c';
 
+let optionsGeolocation = {
+   enableHighAccuracy: true,
+   timeout: 5000,
+   maximumAge: 0,
+}
+
 if (!navigator.geolocation) {
    let weatherInfo = getWeather(55.76, 37.62);
 
@@ -84,7 +90,6 @@ async function handleError(error) {
          break
    }
 }
-
 
 function closeSearch() {
    search.classList.remove('_open-search');
